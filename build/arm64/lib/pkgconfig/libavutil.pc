@@ -1,0 +1,14 @@
+prefix=/Volumes/BoyLondon/FFMPEG-OMT/FFmpeg/build/arm64
+exec_prefix=${prefix}
+libdir=/Volumes/BoyLondon/FFMPEG-OMT/FFmpeg/build/arm64/lib
+includedir=/Volumes/BoyLondon/FFMPEG-OMT/FFmpeg/build/arm64/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 60.6.100
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil -lm -framework VideoToolbox -pthread -framework CoreFoundation -framework CoreMedia -framework CoreVideo -framework CoreServices
+Libs.private: 
+Cflags: -I${includedir}

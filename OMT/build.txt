@@ -1,0 +1,16 @@
+./configure --prefix="$INSTALL_DIR" --disable-shared --enable-static --enable-nonfree --enable-libomt --extra-cflags="-I$(pwd)/OMT/include" --extra-ldflags="-L$(pwd)/OMT/lib"
+
+make -j
+
+install_name_tool -add_rpath @executable_path/resources ffmpeg
+
+
+libomt and libvpx in /resources
+
+
+test
+./ffmpeg -re -i /Volumes/BoyLondon/Videos/Uncompressed/crowd_run_1080p50.mov  -pix_fmt uyvy422 -f libomt testout
+
+
+
+

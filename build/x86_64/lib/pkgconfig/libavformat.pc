@@ -1,0 +1,14 @@
+prefix=/Volumes/BoyLondon/FFMPEG-OMT/FFmpeg/build/x86_64
+exec_prefix=${prefix}
+libdir=/Volumes/BoyLondon/FFMPEG-OMT/FFmpeg/build/x86_64/lib
+includedir=/Volumes/BoyLondon/FFMPEG-OMT/FFmpeg/build/x86_64/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 62.1.103
+Requires: libavcodec >= 62.8.100, libswresample >= 6.0.100, libavutil >= 60.6.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavformat -lm -lbz2 -L/opt/local/lib -lz -framework CoreFoundation -framework Security
+Libs.private: 
+Cflags: -I${includedir}

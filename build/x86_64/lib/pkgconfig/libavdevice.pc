@@ -1,0 +1,14 @@
+prefix=/Volumes/BoyLondon/FFMPEG-OMT/FFmpeg/build/x86_64
+exec_prefix=${prefix}
+libdir=/Volumes/BoyLondon/FFMPEG-OMT/FFmpeg/build/x86_64/lib
+includedir=/Volumes/BoyLondon/FFMPEG-OMT/FFmpeg/build/x86_64/include
+
+Name: libavdevice
+Description: FFmpeg device handling library
+Version: 62.0.100
+Requires: libavfilter >= 11.3.100, libswscale >= 9.0.100, libavformat >= 62.1.103, libavcodec >= 62.8.100, libswresample >= 6.0.100, libavutil >= 60.6.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavdevice -framework Foundation -lomt -framework AudioToolbox -framework CoreAudio -lomt -lm -framework AVFoundation -framework CoreVideo -framework CoreMedia -framework CoreGraphics -L/opt/local/lib -lxcb -L/opt/local/lib -lxcb-shm -L/opt/local/lib -lxcb-shape -L/opt/local/lib -lxcb-xfixes -framework AudioToolbox -pthread -L/opt/local/lib -lXv -L/opt/local/lib -lX11 -L/opt/local/lib -lXext
+Libs.private: 
+Cflags: -I${includedir}
