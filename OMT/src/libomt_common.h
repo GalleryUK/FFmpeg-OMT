@@ -1,6 +1,6 @@
 /*
  * libOMT  common code
- * Copyright (c) 2025 Open Media Transport Contributors
+ * Copyright (c) 2025 Open Media Transport Contributors <omt@gallery.co.uk>
  *
  * This file is part of FFmpeg.
  *

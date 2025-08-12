@@ -24,11 +24,17 @@
 */
 
 #pragma once
+#ifdef _MSC_VER
 #pragma comment(lib, "libomt.lib")
+#endif
 
 #define OMT_MAX_STRING_LENGTH 1024
 
-typedef long long int64_t;
+#ifdef __cplusplus
+	#include <cstdint>  // for C++
+#else
+	#include <stdint.h> // for C
+#endif
 
 typedef enum OMTFrameType
 {
@@ -158,6 +164,7 @@ typedef enum OMTPreferredVideoFormat
     OMTPreferredVideoFormat_BGRA = 2,
     OMTPreferredVideoFormat_UYVYorUYVA = 3,
     OMTPreferredVideoFormat_UYVYorUYVAorP216orPA16 = 4,
+    OMTPreferredVideoFormat_P216 = 5,
     OMTPreferredVideoFormat_INT32 = 0x7fffffff //Ensure int type in C
 } OMTPreferredVideoFormat;
 
@@ -395,6 +402,16 @@ extern "C" {
     void omt_receive_settally(omt_receive_t* instance, OMTTally* tally);
 
     /**
+    * Receives the current tally state across all connections to a Sender, not just this Receiver.
+    *
+    * If this function times out, the last known tally state will be received.
+    *
+    * Returns 0 if timed out or tally didn't change. 1 otherwise.
+    *
+    */
+    int omt_receive_gettally(omt_send_t* instance, int timeoutMilliseconds, OMTTally* tally);
+
+    /**
     * Change the flags on the current receive instance. Will apply from the next frame received.
     * This allows dynamic switching between preview mode.
     */
@@ -435,6 +452,41 @@ extern "C" {
     * Optionally set information describing the sender.
     */
     void omt_send_setsenderinformation(omt_send_t* instance, OMTSenderInfo* info);
+
+    /**
+    * Add to the list of metadata that is sent immediately upon a new connection by a receiver.
+    * 
+    * This metadata will also be immediately sent to any currently connected receivers.
+    * 
+    * @param[in] metadata XML metadata in UTF-8 encoding followed by a null terminator.
+    * 
+    */
+    void omt_send_addconnectionmetadata(omt_send_t* instance, const char* metadata);
+
+    /**
+    * Clears the list of metadata that is sent immediately upon a new connection by a receiver.
+    */
+    void omt_send_clearconnectionmetadata(omt_send_t* instance);
+
+    /**
+    * Use this to inform receivers to connect to a different address.
+    * 
+    * This is used to create a "virtual source" that can be dynamically switched as needed.
+    * 
+    * This is useful for scenarios where receiver needs to be changed remotely.
+    * 
+    * @param[in] newAddress The new address. Set to null or empty to disable redirect.
+    */
+    void omt_send_setredirect(omt_send_t* instance, const char* newAddress);
+
+    /**
+    * Retrieve the Discovery address in the format HOSTNAME (NAME)
+    * 
+    * Returns the length in bytes of the UTF-8 encoded value including null terminator.
+    * 
+    * maxLength specifies the maximum amount of bytes allocated to value by the caller.
+    */
+    int omt_send_getaddress(omt_send_t* instance, char* address, int maxLength);
 
     /**
     * Destroy instance created with omt_send_create.
