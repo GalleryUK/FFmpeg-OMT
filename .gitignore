@@ -1,5 +1,13 @@
 build/
 OMT/src/libomt_dec.c
+FFmpeg-master.zip
+build.txt
+buildwin.bat
+.forgejo/
+OMT/src/
+FUNDING.json
+INSTALL.md
+OMT/build.txt
 *.d
 *.o
 *.pc
