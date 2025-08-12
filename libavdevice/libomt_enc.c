@@ -40,19 +40,6 @@
 
 #include "libomt_common.h"
 
-// typedef struct OMTContext {
-//     const AVClass *class;  // MUST be first field for AVOptions!
-//     float reference_level;
-//     int clock_output;
-//     //int tenbit;
-//     OMTMediaFrame video; 
-//     OMTMediaFrame audio;
-//     float * floataudio;
-//     omt_send_t * omt_send;
-//     uint8_t * uyvyflip[2];
-//     int whichFlipBuff;
-//     struct AVFrame *last_avframe;
-// } OMTContext ;
 
 struct OMTContext {
     const AVClass *class;  // MUST be first field for AVOptions!

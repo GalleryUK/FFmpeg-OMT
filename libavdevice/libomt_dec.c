@@ -37,18 +37,8 @@
 
 #include <unistd.h>
 
-// typedef  struct OMTContext {
-//     const AVClass *class;  // MUST be first field for AVOptions!
-//     float reference_level;
-//     int find_sources;
-//     int tenbit;
-//     int nativevmx;
-//     omt_receive_t *recv;    
-//     AVStream *video_st, *audio_st;
-// } OMTContext;
 struct OMTContext {
     const AVClass *class;  // MUST be first field for AVOptions!
-    //void *ctx;
     float reference_level;
     int find_sources;
     int tenbit;
