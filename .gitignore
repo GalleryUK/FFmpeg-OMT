@@ -12,6 +12,8 @@ resources/
 *.d
 *.o
 *.pc
+config.h
+config.asm
 build/x86_64/bin/ffmpeg
 build/x86_64/bin/ffplay
 build/x86_64/bin/ffprobe
