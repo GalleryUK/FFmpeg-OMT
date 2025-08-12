@@ -13,6 +13,7 @@ resources/
 *.o
 *.pc
 config.h
+config_components.h
 config.asm
 build/x86_64/bin/ffmpeg
 build/x86_64/bin/ffplay
