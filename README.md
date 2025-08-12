@@ -1,8 +1,9 @@
-FFmpeg README
+FFmpeg-OMT README
 =============
 
 FFmpeg is a collection of libraries and tools to process multimedia content
 such as audio, video, subtitles and related metadata.
+This fork adds support for the OpenMediaTransport protocol [https://github.com/openmediatransport/](https://github.com/openmediatransport/)
 
 ## Libraries
 
