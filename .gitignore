@@ -5,6 +5,7 @@ build.txt
 buildwin.bat
 .forgejo/
 OMT/src/
+OMT/lib/libomt.h
 FUNDING.json
 INSTALL.md
 OMT/build.txt
